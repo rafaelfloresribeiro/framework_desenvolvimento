@@ -4,23 +4,6 @@ async function CEP() {
     const cepLimpo = cep.replace(/\D/g, '')
 }
 
-async function validCEP(cep) {
-    if (cep.length !== 8) {
-        return false
-    }
-    
-    try {
-        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
-        const dados = await resposta.json()
-        
-        if (dados.erro) {
-            return false
-        }
-        return true
-    } catch (error) {
-        return false
-    }
-}
 async function cepAPI() {
     const cepInput = document.getElementById('inputAddress')
     const cep = cepInput.value.replace(/\D/g, '')
